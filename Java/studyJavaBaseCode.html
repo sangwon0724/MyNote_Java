@@ -21,7 +21,7 @@
                 }
             </pre>
         </li>
-        <li>입력
+        <li>입력 - Scanner
             <pre>
                 import java.util.*;
                 public class Main{
@@ -32,18 +32,44 @@
                         //3. char형은 next()나 nextLine()으로 받을수 없다.
                         Scanner sc = new Scanner(System.in);
 
-                        //int를 입력받는 경우 - Scanner 사용
+                        //int를 입력받는 경우
                         int num;
                         num = sc.nextInt();
                         System.out.println("int형 변수 num : " + num);
 
                         
-                        //String을 입력받는 경우 - Scanner 사용
+                        //String을 입력받는 경우
                         String str;
                         str = sc.nextLine();
                         System.out.println("String형 변수 str : " + str);
 
                         sc.close(); //스캐너 종료
+                    }
+                }
+            </pre>BufferedReader & BufferedWriter
+        </li>
+        <li>입출력 - BufferedReader & BufferedWriter
+            <pre>
+                /*import java.io.BufferedReader;
+                import java.io.BufferedWriter;
+                import java.io.InputStreamReader;
+                import java.io.OutputStreamWriter;
+                import java.io.IOException;*/
+                import java.io.*;
+                import java.util.StringTokenizer;
+                public class Main{
+                    public static void main(String args[]) throws IOException{
+                        // BufferedReader를 사용하기 위해서는 throws IOException을 해 주어야 함.
+		                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		                StringTokenizer st;
+		                int count=Integer.parseInt(br.readLine());
+                        
+                        for(int i=0;i&lt;;count;i++){
+                            st=new StringTokenizer(br.readLine());
+                            bw.write(Integer.parseInt(st.nextToken())+Integer.parseInt(st.nextToken())+"\n");
+                        }
+                        bw.close();
                     }
                 }
             </pre>
@@ -75,11 +101,84 @@
     </ul>
 </section>
 
+<section id="time" tag="">
+    <header class="note_title">시간</header>
+    <ul>
+        <li>알람시계 일찍 맞추기 (45분 기준)
+            <pre>
+                import java.util.*;
+                public class Main{
+                    public static void main(String args[]){
+                        Scanner sc = new Scanner(System.in);
+                        int hour,min;
+                        hour = sc.nextInt();
+                        min = sc.nextInt();
+                        min-=45;
+                        if(min&lt;0){
+                            min+=60;
+                            hour--;
+                            if(hour&lt;0){
+                                hour+=24;
+                            }
+                        }
+                        System.out.println(hour + " " + min);
+                    }
+                }
+            </pre>
+        </li>
+        <li>알람시계 느리게 맞추기 (45분 기준)
+            <pre>
+                import java.util.*;
+                public class Main{
+                    public static void main(String args[]){
+                        Scanner sc = new Scanner(System.in);
+                        int hour,min;
+                        hour = sc.nextInt();
+                        min = sc.nextInt();
+                        min+=45;
+                        if(min&gt;60){
+                            min-=60;
+                            hour++;
+                            if(hour&gt;=24){
+                                hour-=24;
+                            }
+                        }
+                        System.out.println(hour + " " + min);
+                    }
+                }
+            </pre>
+        </li>
+    </ul>
+</section>
+
+<section id="loop" tag="">
+    <header class="note_title">반복문</header>
+    <ul>
+        <li>for문
+            <pre>
+                import java.util.*;
+                public class Main{
+                    public static void main(String args[]){
+                        Scanner sc = new Scanner(System.in);
+                        int num;
+                        num = sc.nextInt();
+                        for(int i=1;i&lt;=9;i++){
+                            System.out.println(num + " * " + i + " = " + num*i);
+                        }
+                    }
+                }
+            </pre>
+        </li>
+    </ul>
+</section>
+
 <div id="remote">
     <article id="remote_setcion">
         <select id="remote_menu">
             <option value="start">기초 (출력 및 입력)</option>
             <option value="date">날짜</option>
+            <option value="time">시간</option>
+            <option value="loop">반복문</option>
         </select>
     </article>
 </div>

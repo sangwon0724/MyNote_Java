@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 기초 코드</title>
+</head>
+<body>
+
+<section id="start" tag="">
+    <header class="note_title">기초 (출력 및 입력)</header>
+    <ul>
+        <li>출력
+            <pre>
+                public class Main {
+                    public static void main(String[] args)
+                    {
+                        System.out.println("출력");
+                    }
+                }
+            </pre>
+        </li>
+        <li>입력
+            <pre>
+                import java.util.*;
+                public class Main{
+                    public static void main(String args[]){
+                        Scanner sc = new Scanner(System.in);
+                        int a, b;
+                        a = sc.nextInt();
+                        b = sc.nextInt();
+                        System.out.println(a + b);
+                    }
+                }
+            </pre>
+        </li>
+    </ul>
+</section>
+
+<div id="remote">
+    <article id="remote_setcion">
+        <select id="remote_menu">
+            <option value="start">기초 (출력 및 입력)</option>
+        </select>
+    </article>
+</div>
+
+<script src="./remote.js"></script>
+</body>
+</html>
